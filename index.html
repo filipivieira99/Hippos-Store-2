@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hippo's Store - loja virtual de produtos para casa.">
+<title>Hippo's Store | Loja Virtual</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div>
+      <a href="#contato">Atendimento</a>
+      <span>|</span>
+      <a href="#contato">Novidades</a>
+      <span>|</span>
+      <span>Siga a Hippo's</span>
+      <a href="#inicio">f</a><a href="#inicio">◎</a><a href="#inicio">♪</a>
+    </div>
+    <div>
+      <a href="#contato">🔔 Avisos</a>
+      <a href="#contato">Ajuda</a>
+      <a href="#contato">Português</a>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap header-main">
+    <a class="brand" href="#inicio" aria-label="Hippo's Store">
+      <img src="logo.jpeg" alt="Logo Hippo's Store">
+    </a>
+
+    <form class="search" action="#produtos">
+      <label class="sr-only" for="busca">Pesquisar produtos</label>
+      <input id="busca" type="search" placeholder="Busque produtos para sua casa...">
+      <button type="submit">🔍</button>
+      <div class="search-suggestions">
+        <span>organizador</span><span>cozinha</span><span>luminária</span><span>limpeza</span>
+      </div>
+    </form>
+
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo escuro" aria-pressed="false">🌙</button>
+    <a class="cart" href="#carrinho" aria-label="Abrir carrinho de compras">🛒<b>0</b></a>
+  </div>
+
+  <nav class="wrap nav" aria-label="Categorias principais">
+    <a href="#categorias">Ofertas</a>
+    <a href="#categorias">Casa & Decoração</a>
+    <a href="#categorias">Cozinha</a>
+    <a href="#categorias">Organização</a>
+    <a href="#categorias">Limpeza</a>
+    <a href="#categorias">Banheiro</a>
+    <a href="#categorias">Novidades</a>
+    <a href="#ofertas">🔥 Ofertas relâmpago</a>
+  </nav>
+</header>
+
+<div id="overlay" class="overlay" aria-hidden="true"></div>
+
+<aside id="cartDrawer" class="cart-drawer" aria-label="Carrinho de compras">
+  <div class="cart-head"><div><strong>Seu carrinho</strong><span id="cartSubtitle">Itens selecionados</span></div><button id="closeCart" type="button" aria-label="Fechar carrinho">×</button></div>
+  <div id="cartItems" class="cart-items"></div>
+  <div class="cart-footer"><div id="cartAutomaticOffer" class="cart-automatic-offer" hidden></div><div class="cart-coupon-row" id="cartCouponRow" hidden>
+      <span id="cartCouponLabel">Cupom</span>
+      <button id="removeCoupon" type="button">Remover</button>
+      <strong id="cartDiscount">- R$ 0,00</strong>
+    </div>
+    <div class="cart-total"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div><button id="checkout" class="checkout-btn" type="button">Finalizar compra</button><button class="continue-btn" type="button" data-close-cart>Continuar comprando</button></div>
+</aside>
+
+<div id="productModal" class="product-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <button id="closeModal" class="modal-close" type="button" aria-label="Fechar">×</button>
+    <div class="modal-grid"><div class="modal-photo"><img id="modalImg" src="" alt=""></div><div class="modal-info"><small id="modalCategory"></small><h2 id="modalTitle"></h2><div class="modal-stars">★★★★★ <span>Produto bem avaliado</span></div><div id="modalOffer" class="modal-offer" hidden>5% OFF exclusivo no destaque</div><strong id="modalOldPrice" class="modal-old-price" hidden></strong><strong id="modalPrice" class="modal-price">R$ 0,00</strong><p>Produto selecionado da Hippo's Store. Escolha a quantidade e adicione ao carrinho.</p><div class="modal-actions"><div class="qty-picker"><button id="modalMinus" type="button">−</button><input id="modalQty" type="number" min="1" value="1" aria-label="Quantidade"><button id="modalPlus" type="button">+</button></div><button id="modalAdd" class="buy-btn" type="button">Adicionar ao carrinho</button></div></div></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<main id="inicio">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-banner">
+      <div class="banner-copy">
+        <span>LOJA VIRTUAL HIPPO'S STORE</span>
+        <h1>Tudo para sua casa<br><strong>em um só lugar!</strong></h1>
+        <p>Produtos úteis e criativos para facilitar sua rotina, com compra simples e segura.</p>
+        <a class="orange-btn" href="#produtos">Ver produtos</a>
+      </div>
+      <div class="hippo-art">
+        <div class="circle"></div>
+        <img src="logo.jpeg" alt="Mascote Hippo's Store" class="banner-logo">
+      </div>
+    </div>
+
+    <aside class="hero-side">
+      <div class="side-card">
+        <span>🎟️</span>
+        <div><small>COLEÇÃO DE</small><strong>Cupons exclusivos</strong><p>Ganhe descontos exclusivos</p></div>
+        <a href="#ofertas">Pegar</a>
+      </div>
+      <div class="side-card blue">
+        <span>🚚</span>
+        <div><small>COMODIDADE</small><strong>Compra fácil e segura</strong><p>Encontre seus favoritos na nossa loja</p></div>
+        <a href="#produtos">Ver</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="categorias" class="categories-section">
+  <div class="wrap">
+    <div class="section-title"><h2>Compre por categoria</h2><span>Encontre o que você precisa</span></div>
+    <div class="categories">
+      <a href="#produtos" data-category="Acessórios de cozinha"><i class="cat-icon pink">🍳</i><strong>Cozinha</strong><small>+100 itens</small></a>
+      <a href="#produtos" data-category="Decoração"><i class="cat-icon yellow">🧺</i><strong>Organização</strong><small>+80 itens</small></a>
+      <a href="#produtos" data-category="Móveis"><i class="cat-icon green">🧽</i><strong>Limpeza</strong><small>+60 itens</small></a>
+      <a href="#produtos" data-category="all"><i class="cat-icon blue">💡</i><strong>Iluminação</strong><small>+40 itens</small></a>
+      <a href="#produtos" data-category="Decoração"><i class="cat-icon purple">🛁</i><strong>Banheiro</strong><small>+50 itens</small></a>
+      <a href="#produtos" data-category="Acessórios de cozinha"><i class="cat-icon orange">🏠</i><strong>Decoração</strong><small>+90 itens</small></a>
+      <a href="#produtos" data-category="all"><i class="cat-icon cyan">📦</i><strong>Utilidades</strong><small>+120 itens</small></a>
+      <a href="#produtos" data-category="all"><i class="cat-icon red">✨</i><strong>Novidades</strong><small>Confira</small></a>
+    </div>
+  </div>
+</section>
+
+<section id="ofertas" class="flash">
+  <div class="wrap">
+    <div class="flash-head">
+      <div><h2>Ofertas da semana ⚡</h2><span>Condições especiais por tempo limitado</span><div class="countdown" id="countdown" aria-live="polite" aria-label="Tempo restante da oferta"><b id="countHours">02</b><em>:</em><b id="countMinutes">45</b><em>:</em><b id="countSeconds">18</b></div></div>
+      <a href="#produtos">Ver mais ›</a>
+    </div>
+
+    <div class="flash-products" id="flashProducts" aria-live="polite"><p>Carregando ofertas da API...</p></div>
+  </div>
+</section>
+
+<section class="coupon-section" aria-label="Cupons de desconto">
+  <div class="wrap coupons">
+    <div class="coupon-title"><strong>🎟️ Cupons da Hippo's</strong><span>Economize ainda mais na sua compra</span></div>
+    <div class="coupon" data-coupon="HIPPO10" data-discount="10" data-minimum="80">
+      <div><b>R$ 10 OFF</b><span>Acima de R$ 80 · Código: <strong>HIPPO10</strong></span></div>
+      <button type="button">Aplicar</button>
+    </div>
+    <div class="coupon" data-coupon="HIPPO20" data-discount="20" data-minimum="150">
+      <div><b>R$ 20 OFF</b><span>Acima de R$ 150 · Código: <strong>HIPPO20</strong></span></div>
+      <button type="button">Aplicar</button>
+    </div>
+    <div class="coupon" data-coupon="HIPPO30" data-discount="30" data-minimum="250">
+      <div><b>R$ 30 OFF</b><span>Acima de R$ 250 · Código: <strong>HIPPO30</strong></span></div>
+      <button type="button">Aplicar</button>
+    </div>
+  </div>
+</section>
+
+
+<section id="destaques" class="featured-section" aria-label="Produtos em destaque">
+  <div class="wrap">
+    <div class="section-title">
+      <div>
+        <span class="featured-kicker">⭐ OFERTA ESPECIAL</span>
+        <h2>Produtos em destaque</h2>
+      </div>
+      <span class="featured-note">5% OFF exclusivo no produto em destaque</span>
+    </div>
+
+    <div class="featured-grid" id="featuredProductsGrid" aria-live="polite"><p>Carregando destaques da API...</p></div>
+  </div>
+</section>
+
+<section id="produtos" class="products-section">
+  <div class="wrap">
+    <div class="section-title products-title"><div><h2>Nossos produtos</h2><p class="api-description">Todo o catálogo é carregado dinamicamente da Fake Store API.</p></div><div><button class="filter active" type="button">Todos</button><button class="filter" type="button">Mais vendidos</button><button class="filter" type="button">Novidades</button></div></div>
+
+    <p id="productsStatus" class="api-status" role="status" aria-live="polite">Carregando produtos da API...</p>
+    <div class="products" id="productsGrid" aria-live="polite"></div>
+    <p class="api-disclaimer">Os preços são valores fictícios retornados pela API e apresentados apenas para demonstração acadêmica em reais; não representam conversão cambial.</p>
+  </div>
+</section>
+
+
+
+<section id="contato" class="newsletter">
+  <div class="wrap newsletter-inner">
+    <div><h2>Receba as melhores ofertas 💙</h2><p>Cadastre seu e-mail para não perder novidades e cupons da Hippo's Store.</p></div>
+    <form action="#" method="post"><label class="sr-only" for="email">Seu e-mail</label><input id="email" type="email" placeholder="Digite seu e-mail" required><button type="submit">Cadastrar</button></form>
+  </div>
+</section>
+
+</main>
+
+
+<section id="orderSuccess" class="order-success" hidden aria-live="polite">
+  <div class="wrap">
+    <div class="success-card">
+      <div class="success-icon">✓</div>
+      <span class="success-kicker">PEDIDO RECEBIDO</span>
+      <h2>Compra realizada com sucesso!</h2>
+      <p id="successMessage">Obrigado por comprar na Hippo's Store.</p>
+      <div id="successDetails" class="success-details"></div>
+      <button id="successContinue" class="checkout-btn" type="button">Continuar comprando</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div><img src="logo.jpeg" alt="Hippo's Store"><p>Produtos selecionados dinamicamente de uma API pública para demonstração acadêmica.</p></div>
+    <div><h3>ATENDIMENTO</h3><a href="#contato">Central de ajuda</a><a href="#contato">Fale conosco</a><a href="#contato">Política de troca</a></div>
+    <div><h3>SOBRE A LOJA</h3><a href="#inicio">Sobre nós</a><a href="#produtos">Nossos produtos</a><a href="#ofertas">Ofertas</a></div>
+    <div><h3>REDES SOCIAIS</h3><a href="#inicio">Instagram</a><a href="#inicio">Facebook</a><a href="#inicio">TikTok</a></div>
+  </div>
+  <div class="footer-bottom">© 2026 Hippo's Store — Todos os direitos reservados. <span id="dataHora">Projeto acadêmico — HTML + CSS + JavaScript</span></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
